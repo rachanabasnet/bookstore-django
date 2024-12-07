@@ -1,0 +1,154 @@
+.container {
+  margin-top: 1rem;
+}
+
+.search {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.search input {
+  width: 92%;
+  height: 40px;
+  border: 1px solid #23293f;
+}
+
+.searchIcon {
+  border: 1px solid black;
+  width: 5%;
+  background-color: #23293f;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchIcon i {
+  color: white;
+}
+
+.shopTitle {
+  margin: 20px 0;
+}
+
+#bookContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  padding: 15px;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 500px;
+}
+
+.card p {
+  font-size: 1rem;
+  margin: 4px 0;
+  color: #666;
+}
+
+.card a {
+  text-decoration: none;
+  color: #5cb85c;
+  font-weight: bold;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.card button {
+  margin-top: 10px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 25px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.addToCart {
+  width: 150px !important;
+}
+
+.cartAdded {
+  color: green !important;
+}
+
+.noBooks {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+  background-color: white;
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    margin: 4px 2rem;
+  }
+  #bookContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  #bookContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #bookContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .search {
+    width: 85%;
+  }
+
+  .searchIcon {
+    width: 20%;
+  }
+
+  .search input {
+    width: 80%;
+  }
+}

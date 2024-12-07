@@ -1,0 +1,32 @@
+{% extends "authbase.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+{% endblock %}
+{% block content %}
+    <div class="container">
+      <div class="profileCard">
+        <h1>Profile</h1>
+        <div id="profileInfo">
+            <div class="imageDiv">
+                <img src="{{ user.profile.image.url }}" alt="{{ user.profile.name }}" />
+                <button class="btn primaryBtn" id="editBtn">Edit Profile</button>
+            </div>
+            <div class="details">
+                <div class="profileRow">
+                    <div><strong>Username</strong></div>
+                    <div>{{user.username}}</div>
+                  </div>
+                <div class="profileRow">
+                    <div><strong>Name</strong></div>
+                    <div>{{ user.profile.name }}</div>
+                  </div>
+                  <div class="profileRow">
+                    <div><strong>Email</strong></div>
+                    <div>{{ user.email }}</div>
+                  </div>
+            </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

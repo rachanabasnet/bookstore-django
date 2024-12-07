@@ -1,0 +1,115 @@
+body {
+  margin: 16px auto;
+
+  .container {
+    position: relative;
+  }
+
+  .bgImages {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .bx-wrapper {
+    height: 80vh;
+  }
+
+  .bxslider div {
+    height: 78vh;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .bookNavbar {
+    color: white;
+
+    .navList {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+
+      .brand {
+        flex: 1;
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      .pages {
+        flex: 2;
+        font-weight: 200;
+        display: flex;
+        gap: 3rem;
+        justify-content: flex-end;
+
+        > span > a {
+          text-decoration: none;
+          color: whitesmoke;
+          font-weight: 600;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .title {
+      font-size: 44px;
+      font-weight: 700;
+      padding: 36px 44px;
+    }
+
+    .subTitle {
+      padding: 4px 44px;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    .bookNavbar {
+      .navList {
+        grid-template-columns: 1fr;
+
+        .pages {
+          font-size: 14px;
+          gap: 10px;
+          justify-content: flex-start;
+          font-weight: 400;
+          text-decoration: underline;
+        }
+      }
+      .title {
+        font-size: 34px;
+      }
+    }
+
+    .bx-wrapper {
+      height: 88vh;
+    }
+
+    .bxslider div {
+      height: 85vh;
+    }
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  body {
+    .bookNavbar {
+      .title {
+        font-size: 34px;
+      }
+    }
+  }
+}

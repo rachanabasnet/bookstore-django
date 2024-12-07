@@ -1,0 +1,107 @@
+.primaryBtn {
+  width: 250px;
+  height: 48px;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+  border-radius: 32px;
+  cursor: pointer;
+}
+
+.navbar-brand, .left-col h1{
+  font-family: 'Gaegu', cursive;
+}
+
+.secBtn {
+  width: 250px;
+  height: 48px;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  border-radius: 32px;
+  cursor: pointer;
+}
+
+.tertiaryBtn {
+  width: 250px;
+  height: 48px;
+  border: none;
+  outline: none;
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+  background: transparent;
+}
+
+.btnGroup {
+  padding: 22px 4px;
+  display: flex;
+  gap: 12px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  .container {
+      margin: 16px auto;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 16px;
+
+    > div {
+      border-radius: 16px;
+    }
+
+    .bookNavbar {
+      background-color: aliceblue;
+      display: flex;
+      flex-direction: column;
+
+      .navList {
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .brand {
+          flex: 1;
+          font-weight: 700;
+          font-size: 18px;
+        }
+
+        .pages {
+          flex: 2;
+          font-weight: 200;
+          display: flex;
+          justify-content: space-evenly;
+        }
+      }
+
+      .title {
+        font-size: 44px;
+        font-weight: 700;
+        padding: 36px 44px;
+      }
+
+      .subTitle {
+        padding: 4px 44px;
+        font-weight: 500;
+        font-size: 18px;
+      }
+    }
+
+    .placeholderImg {
+      background-color: palevioletred;
+
+      .heroImg {
+        width: 100%;
+        height: 95vh;
+      }
+    }
+  }
+}

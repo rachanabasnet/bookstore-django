@@ -1,0 +1,52 @@
+{% extends "authbase.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+{% endblock %}
+{% block content %}
+    <div class="container">
+      <div class="profileCard mt-4" id="editDiv">
+          <h1>Edit Profile</h1>
+          s<form method="post">
+              <div class="formRow">
+                <div>
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" name="first_name" />
+                  <span class="error" id="firstNameError"></span>
+                </div>
+                <div>
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" name="last_name" />
+                  <span class="error" id="lastNameError"></span>
+                </div>
+              </div>
+    
+              <div class="formRow">
+                <div>
+                  <label for="address">Address</label><br />
+                  <input type="text" id="address" />
+                  <span class="error" id="addressError"></span>
+                </div>
+                <div>
+                  <label>Gender</label><br />
+                  <input type="radio" id="male" name="gender" value="male" />
+                  <label for="male">Male</label>
+                  <input type="radio" id="female" name="gender" value="female" />
+                  <label for="female">Female</label>
+                  <input type="radio" id="others" name="gender" value="others" />
+                  <label for="others">Other</label>
+                  <br /><span class="error" id="genderError"></span>
+                </div>
+              </div>
+              <div class="submitBtn">
+                <button class="btn secBtn" id="save">Save</button>
+                <button class="btn tertiaryBtn" id="cancelBtn">Cancel</button>
+              </div>
+            </form>
+      </div>
+    </div>
+    <script src="js/profile.js"></script>
+    <script src="js/common.js"></script>
+{% endblock %}
