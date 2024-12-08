@@ -15,21 +15,26 @@
     <div id="bookContainer">
         {% for book in books %}
             <div class="card">
-                <img src="{{ book.image_url.url }}" alt="{{book.title}}">
-                <h2>{{book.title}}</h2>
-                <p><strong>Author:</strong> {{book.author}}</p>
-                <p><strong>Pages:</strong> {{book.pages}}</p>
-                <p><strong>Language:</strong> {{book.language}}</p>
+                <img src="{{ book.item.image_url.url }}" alt="{{book.item.title}}">
+                <h2>{{book.item.title}}</h2>
+                <p><strong>Author:</strong> {{book.item.author}}</p>
+                <p><strong>Pages:</strong> {{book.item.pages}}</p>
+                <p><strong>Language:</strong> {{book.item.language}}</p>
                 {% if user.is_authenticated %}
                     <div class="footer">
-                        <div class="price" id="price-${index}">${{book.price}}</div>
-                        <a href="#">
+                        <div class="price" id="price-${index}">${{book.item.price}}</div>
+                        
+                        {% if book.is_in_cart %}
+                            <a href="{% url 'cart' %}">
+                                <button class="addToCart btn secBtn">Go To Cart</button>
+                            </a>
+                        {% else %}
+                            <a href="#">
                              <button class="addToCart btn primaryBtn">
                                  Add To Cart <i class="fa-solid fa-cart-plus"></i>
                              </button>
-                        </a>
-                        <p class="cartAdded" id="added-${index}" style="display: none;">
-                        Added to Cart!</p>
+                            </a>
+                        {% endif %}
                     </div>
                 {% endif %}
             </div>
