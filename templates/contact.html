@@ -1,5 +1,6 @@
 {% extends "authbase.html" %}
 {% load static %}
+{% block title %}Contact{% endblock %}
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
 {% endblock %}
@@ -40,5 +41,4 @@
           <button type="submit" class="btn secBtn">Submit</button>
         </div>
       </form>
-      <p id="statusMessage"></p>
 {% endblock %}

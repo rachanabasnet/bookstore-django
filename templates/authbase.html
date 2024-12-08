@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bookstore</title>
+    <title>{% block title %}Bookstore.{% endblock %}</title>
     <meta charset="UTF-8" />
 
     <!-- responsive meta tag -->
@@ -82,7 +82,7 @@
                   </a>
               </li>
               <li>
-                  <a href="{% url 'logout' %}">
+                  <a href="{% url 'logout' %}" title="Logout">
                       <i class="fa fa-sign-out" aria-hidden="true"></i>
                       <span class="navText">Logout</span>
                   </a>
