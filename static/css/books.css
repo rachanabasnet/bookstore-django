@@ -30,6 +30,11 @@
   color: white;
 }
 
+.unauthenticated-message {
+  color: red;
+  margin-bottom: 2rem;
+}
+
 .shopTitle {
   margin: 20px 0;
 }

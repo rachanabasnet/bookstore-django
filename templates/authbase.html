@@ -49,29 +49,31 @@
       </button>
       <ul class="nav-links" id="navLinks">
         <li>
-          <a href="index.html"
+          <a href="{% url 'home' %}"
             ><i class="fa-solid fa-house"></i
             ><span class="navText">Home</span></a
           >
         </li>
         <li>
-          <a href="books.html"
+          <a href="{% url 'books' %}"
             ><i class="fa-solid fa-shop"></i
             ><span class="navText">Shop</span></a
           >
         </li>
         <li>
-          <a href="contact.html"
+          <a href="{% url 'contact' %}"
             ><i class="fa-solid fa-address-book"></i
             ><span class="navText">Contact</span></a
           >
         </li>
-        <li id="cart">
-          <a href="cart.html"
-            ><i class="fa-solid fa-cart-shopping"></i
-            ><span class="navText">Cart</span></a
-          >
-        </li>
+          {% if user.is_authenticated %}
+            <li id="cart">
+              <a href="{% url 'cart' %}"
+                ><i class="fa-solid fa-cart-shopping"></i
+                ><span class="navText">Cart</span></a
+              >
+            </li>
+          {% endif %}
           {% if user.is_authenticated %}
               <li id="profile">
                   <a href="{% url 'profile' %}">

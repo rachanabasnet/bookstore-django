@@ -10,8 +10,7 @@ def index(request):
     return render(request, template_name)
 
 
-@login_required
 def books(request):
     template_name = 'books.html'
-    books = Book.objects.all()
-    return render(request, template_name, {'books': books})
+    book_list = Book.objects.all()
+    return render(request, template_name, {'books': book_list})

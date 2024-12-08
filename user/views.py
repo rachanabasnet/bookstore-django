@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseBadRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 from .forms import UserRegisterForm
 from .models import Profile
 
@@ -16,7 +15,6 @@ def register(request):
             username = form.cleaned_data.get('username')
             user = User.objects.get(username=username)
             Profile.objects.create(user=user, name=username)
-            messages.success(request, f'Your account has been created. You can now log in.')
             return redirect('login')
     else:
         form = UserRegisterForm()

@@ -112,6 +112,15 @@ body {
   border-radius: 50%;
 }
 
+.success {
+  height: 45px;
+  width: 100%;
+  border: 1px solid green;
+  background-color: rgba(0, 128, 0, 0.5);
+  padding: 10px 25px;
+  margin: 2rem 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-links {
