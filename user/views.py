@@ -1,8 +1,7 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponseBadRequest
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, ProfileEditForm
 from .models import Profile
 
 
@@ -14,7 +13,7 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             user = User.objects.get(username=username)
-            Profile.objects.create(user=user, name=username)
+            Profile.objects.create(user=user, name=f'{user.first_name} {user.last_name}')
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -26,23 +25,17 @@ def profile(request):
 
 @login_required
 def edit_profile(request):
-    user_profile = get_object_or_404(Profile, user=request.user)
+    try:
+        user_profile = Profile.objects.get(user=request.user)
+    except Profile.DoesNotExist:
+        return redirect('home')
 
     if request.method == 'POST':
-        name = request.POST.get('name')
-        bio = request.POST.get('bio')
-        email = request.POST.get('email')
+        form = ProfileEditForm(request.POST, request.FILES, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileEditForm(instance=user_profile)
 
-        if not name or not email:
-            return HttpResponseBadRequest("Name and email are required.")
-
-        user_profile.name = name
-        user_profile.bio = bio
-        request.user.email = email
-
-        request.user.save()
-        user_profile.save()
-
-        return redirect('profile_view')
-
-    return render(request, 'user/edit_profile.html', {'profile': profile})
+    return render(request, 'user/profile-edit.html', {'form': form})

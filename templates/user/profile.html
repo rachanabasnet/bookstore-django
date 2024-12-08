@@ -11,7 +11,9 @@
         <div id="profileInfo">
             <div class="imageDiv">
                 <img src="{{ user.profile.image.url }}" alt="{{ user.profile.name }}" />
-                <button class="btn primaryBtn" id="editBtn">Edit Profile</button>
+                <a href="{% url 'edit-profile' %}">
+                    <button class="btn primaryBtn" id="editBtn">Edit Profile</button>
+                </a>
             </div>
             <div class="details">
                 <div class="profileRow">
@@ -21,11 +23,23 @@
                 <div class="profileRow">
                     <div><strong>Name</strong></div>
                     <div>{{ user.profile.name }}</div>
-                  </div>
-                  <div class="profileRow">
+                </div>
+                <div class="profileRow">
                     <div><strong>Email</strong></div>
                     <div>{{ user.email }}</div>
-                  </div>
+                </div>
+                <div class="profileRow">
+                    <div><strong>Gender</strong></div>
+                    <div>{{ user.profile.gender }}</div>
+                </div>
+                <div class="profileRow">
+                    <div><strong>DOB</strong></div>
+                    <div>{{ user.profile.dob }}</div>
+                </div>
+                <div class="profileRow">
+                    <div><strong>Address</strong></div>
+                    <div>{{ user.profile.address }}</div>
+                </div>
             </div>
         </div>
       </div>
