@@ -5,5 +5,52 @@
     <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
 {% endblock %}
 {% block content %}
-      <h1>Cart</h1>
+    <div class="cart">
+        <h1>Cart</h1>
+        {% if not cart %}
+            <div class="noItems">
+                <img src="{% static 'images/empty-box.png' %}" alt="No Items" width="250" height="250"/>
+                <p>Your cart is empty!!</p>
+                <p>Shop our latest collection by clicking on the button below.</p>
+                <a href="{% url 'books' %}"><button class="btn primaryBtn">Browse</button></a>
+            </div>
+        {% endif %}
+
+        {% if cart %}
+            {% for item in items %}
+                <div class="item">
+                    <div>
+                        <img src="{{ item.book.image_url.url }}" alt="{{item.book.title}}">
+                        <div class="itemDetails">
+                            <h2>{{ item.book.title }}</h2>
+                            <p>{{ item.book.author.name }}</p>
+                        </div>
+                    </div>
+                    <div class="item-price">
+                        <div class="itemQuantity">
+                          <button class="reduceQuantity">-</button>
+                          <div>{{ item.quantity }}</div>
+                          <button class="addQuantity">+</button>
+                        </div>
+                      <p class="itemPrice">${{ item.get_total_price }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="summary">
+                <div class="summary-item">
+                    <p>Subtotal</p>
+                    <p>${{ cart.subtotal }}</p>
+                </div>
+                <div class="summary-item">
+                    <p>Shipping Fee</p>
+                    <p>${{ cart.shipping }}</p>
+                </div>
+            </div>
+            <div class="total">
+                <p>Total</p>
+                <p>CAD ${{ cart.total }}</p>
+            </div>
+            <button class="orderBtn" id="confirmOrder">Confirm Order</button>
+        {% endif %}
+    </div>
 {% endblock %}
