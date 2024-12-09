@@ -29,7 +29,7 @@
                                 <button class="addToCart btn secBtn">Go To Cart</button>
                             </a>
                         {% else %}
-                            <a href="#">
+                            <a href="{% url 'add_to_cart' book.item.id %}">
                              <button class="addToCart btn primaryBtn">
                                  Add To Cart <i class="fa-solid fa-cart-plus"></i>
                              </button>

@@ -18,7 +18,6 @@ def books(request):
         cart_items = active_cart.items.all()
         cart_books = {item.book.id: item.quantity for item in cart_items}
 
-
         for book in Book.objects.all():
             is_in_cart = cart_books.get(book.id, 0)
             book_list.append({'item': book, 'is_in_cart': True if is_in_cart > 0 else False})
