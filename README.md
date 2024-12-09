@@ -3,8 +3,8 @@
 ## Project Overview
 This project is an online bookstore. 
 This project includes features such as:
-- View Latest Trending Books
-- Add the books to cart
+- View the Latest Trending Books
+- Add the books to the cart
 - Order the books
 - User Authentication & Profile Update
 - View Order History
