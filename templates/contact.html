@@ -11,6 +11,9 @@
                     <div class="{{ message.tags }}">{{ message }}</div>
                 {% endfor %}
         {% endif %}
+    <div class="contactImg">
+        <img src="{% static 'images/books.jpg' %}" width="150" height="150" alt="books"/>
+    </div>
       <form id="contactForm" method="post">
         {% csrf_token %}
         <label for="name">Name</label>

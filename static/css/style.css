@@ -105,12 +105,48 @@ body {
     }
 
     .placeholderImg {
-      background-color: palevioletred;
-
-      .heroImg {
-        width: 100%;
-        height: 95vh;
-      }
+      background-image: url("../images/books-stack.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 95vh;
     }
   }
 }
+
+
+@media screen and (max-width: 1025px) {
+  body {
+    .header{
+    .bookNavbar {
+      .title {
+        font-size: 34px;
+      }
+    }}
+  }
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    .header{
+      grid-template-columns: 1fr;
+
+      .bookNavbar {
+      .navList {
+        grid-template-columns: 1fr;
+
+        .pages {
+          font-size: 14px;
+          gap: 10px;
+          justify-content: flex-start;
+          font-weight: 400;
+          text-decoration: underline;
+        }
+      }
+      .title {
+        font-size: 34px;
+      }
+    }
+  }}
+}
+

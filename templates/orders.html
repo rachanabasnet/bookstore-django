@@ -1,22 +1,23 @@
 {% extends "authbase.html" %}
 {% load static %}
-{% block title %}Cart{% endblock %}
+{% block title %}Order History{% endblock %}
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
 {% endblock %}
 {% block content %}
     <div class="cart">
-        <h1>Cart</h1>
+        <h1>Orders</h1>
         {% if messages %}
                 {% for message in messages %}
                     <div class="{{ message.tags }}">{{ message }}</div>
                 {% endfor %}
         {% endif %}
-        {% if not has_items %}
+        {% if not orders %}
             <div class="noItems">
-                <img src="{% static 'images/empty-cart.jpg' %}" alt="No Items" width="250" height="250"/>
-                <p>Your cart is empty!!</p>
-                <p>Shop our latest collection by clicking on the button below.</p>
+                <img src="{% static 'images/no-orders.jpg' %}" alt="No Items" width="250" height="250"/>
+                <p>No orders yet!!</p>
+                <p>Place you order now by shopping our latest collection.</p>
+                <p>Click on the button below to view the books.</p>
                 <a href="{% url 'books' %}"><button class="btn primaryBtn">Browse</button></a>
             </div>
         {% endif %}

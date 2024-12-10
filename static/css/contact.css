@@ -12,6 +12,13 @@ body {
   margin: 16px auto;
 }
 
+.contactImg {
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 h1 {
   text-align: center;
   color: #333;
