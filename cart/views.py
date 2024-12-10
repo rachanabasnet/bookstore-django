@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 
 from books.models import Book
 from cart.models import CartItem, Cart
+from order.models import Order
 
 
 # Create your views here.
@@ -77,3 +78,14 @@ def remove_from_cart(request, item_id):
     return redirect('cart')
 
 
+def confirm_order(request, cart_id):
+    try:
+        user_cart = Cart.objects.get(id=cart_id)
+        user_cart.is_active = False
+        user_cart.save()
+        order = Order(user=request.user, cart=user_cart)
+        order.save()
+        messages.success(request, 'Order confirmed.')
+    except Cart.DoesNotExist:
+        messages.error(request, 'Cart not found. Please try again.')
+    return redirect('orders')

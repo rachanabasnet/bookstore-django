@@ -1,0 +1,98 @@
+.orders {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 70%;
+  margin: 16px auto;
+}
+
+.order-title {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.order-count {
+        background-color: #f2f2f2;
+        border: 1px solid #e1e1e1;
+        border-radius: 4px;
+        padding: 0 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 600;
+}
+
+.order-summary {
+    background-color: #f2f2f2;
+    border: 1px solid #e1e1e1;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.order-info {
+    display: flex;
+    gap: 40px;
+}
+
+.order-info div {
+    text-align: left;
+}
+
+.label {
+    color: #6c6c6c;
+    font-size: 14px;
+    margin: 0;
+}
+
+.value {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0 0;
+}
+
+.order-actions {
+    text-align: right;
+}
+
+.order-number {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.links a {
+    color: #007600;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.links span {
+    color: #6c6c6c;
+}
+
+.order-details {
+    background-color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 1px solid #e1e1e1;
+    padding: 20px;
+}

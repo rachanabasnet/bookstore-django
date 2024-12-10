@@ -2,11 +2,17 @@
 {% load static %}
 {% block title %}Order History{% endblock %}
 {% block style %}
+    <link rel="stylesheet" href="{% static 'css/order.css' %}" />
     <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
 {% endblock %}
 {% block content %}
-    <div class="cart">
-        <h1>Orders</h1>
+    <div class="orders">
+        <div class="order-title">
+            <h3>Your Orders </h3>
+            <div class="order-count">
+                {{ order_count }}
+            </div> 
+        </div>
         {% if messages %}
                 {% for message in messages %}
                     <div class="{{ message.tags }}">{{ message }}</div>
@@ -22,50 +28,47 @@
             </div>
         {% endif %}
 
-        {% if has_items %}
-            {% for item in items %}
-                <div class="item">
-                    <div>
-                        <img src="{{ item.book.image_url.url }}" alt="{{item.book.title}}">
-                        <div class="itemDetails">
-                            <h2>{{ item.book.title }}</h2>
-                            <p>{{ item.book.author.name }}</p>
+        {% if orders %}
+            {% for order in orders %}
+                 <div class="order">
+                    <div class="order-summary">
+                    <div class="order-info">
+                        <div>
+                            <p class="label">Order placed</p>
+                            <p class="value">{{ order.ordered_at }}</p>
+                        </div>
+                        <div>
+                            <p class="label">Total</p>
+                            <p class="value">${{ order.cart.get_total }}</p>
+                        </div>
+                        <div>
+                            <p class="label">Order Status</p>
+                            <p class="value">{{ order.order_status|capfirst }}</p>
                         </div>
                     </div>
-                    <div class="item-price">
-                        <a href="{% url 'remove_from_cart' item.id %}" class="remove-item">
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </a>
-                        <div class="itemQuantity">
-                          <a href="{% url 'reduce_quantity_to_cart' item.id %}">
-                              <button class="reduceQuantity">-</button>
-                          </a>
-                          <div>{{ item.quantity }}</div>
-                            <a href="{% url 'add_quantity_to_cart' item.id %}">
-                                <button class="addQuantity">+</button>
-                            </a>
-                        </div>
-                      <p class="itemPrice">${{ item.get_total_price|floatformat:2 }}</p>
+                    <div class="order-actions">
+                        <p class="order-number">Order # {{ order.id }}</p>
                     </div>
+                 </div>
+                    <div class="order-details">
+                        {% for item in order.cart.items.all %}
+                            <div class="item">
+                                <div>
+                                    <img src="{{ item.book.image_url.url }}" alt="{{item.book.title}}">
+                                    <div class="itemDetails">
+                                        <h2>{{ item.book.title }}</h2>
+                                        <p>{{ item.book.author.name }}</p>
+                                    </div>
+                                </div>
+                                <div class="item-price">
+                                      <div class="order-count">{{ item.quantity }}</div>
+                                    <p class="itemPrice">${{ item.get_total_price}}</p>
+                                </div>
                 </div>
+                        {% endfor %}
+                    </div>
+                 </div>
             {% endfor %}
-            <div class="summary">
-                <div class="summary-item">
-                    <p>Subtotal</p>
-                    <p>${{ cart.subtotal }}</p>
-                </div>
-                <div class="summary-item">
-                    <p>Shipping Fee</p>
-                    <p>${{ cart.shipping }}</p>
-                </div>
-            </div>
-            <div class="total">
-                <p>Total</p>
-                <p>CAD ${{ cart.total }}</p>
-            </div>
-            <a href="{% url 'confirm_order' cart.id %}">
-                <button class="orderBtn" id="confirmOrder">Confirm Order</button>
-            </a>
         {% endif %}
     </div>
 {% endblock %}
